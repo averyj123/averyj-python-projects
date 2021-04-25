@@ -37,7 +37,8 @@ print("")
 #Ask how many people are playing
   
 while True:    
-    people = input("How many people are playing today? (Please enter a whole number) ")
+    print("How many people are playing today? (Please enter a whole number in the input box above) ")
+    people = input("")
     try:
         people = int(people)
         if people >= 1:
@@ -56,7 +57,8 @@ people = int(people)
 scores = {}
 if people == 1:
     while True:
-        name = input("Please enter your first name. ")
+        print("Please enter your first name in the input box above. ")
+        name = input("")
         if " " not in name:
             break
         else:
@@ -66,7 +68,8 @@ if people == 1:
 else:
     for i in range(people):
         while True:
-            name = input("Player "+str(i + 1)+", what is your name? ")
+            print("Player "+str(i + 1)+", what is your name? ")
+            name = input("")
             if " " not in name:
                 break
             else:
@@ -74,16 +77,19 @@ else:
         scores[name.capitalize()]=0
         print("")
 #Ask for how many questions they want to play
-questions = int(input("How many different questions would you like to go through? (limit is "+str(len(rathers))+") "))
+print("How many different questions would you like to go through? (limit is "+str(len(rathers))+") Enter your answer in the input box above.")
+questions = int(input(""))
 print("")
 
 #Ask for the mode they want to play in
 while True:
-    mode = input("Do you want to play in easy mode (mode 1) or hard mode (mode 2)? Please type in 1 (for easy mode), 2 (for hard mode), or 3 (to learn what the modes are). ")
+    print("Do you wnat to play in easy mode (mode 1) or hard mode (mode 2)? Please type in 1 (for easy mode), 2 (for hard mode), or 3 (to learn what hte modes are) in the input box above. ")
+    mode = input("")
     if mode == "3":
         print("")
         print("Easy mode and hard mode are very similar. The only difference is that in hard mode, 1 point is deducted from your score when you get an answer wrong. ")
-        input("Hit enter when you are ready to move on. ")
+        print("Hit enter when you are ready to move on.")
+        input("")
         print("")
     elif mode == "1":
         mode = "easy"
@@ -135,8 +141,8 @@ for i in range(questions):
             print("Good job! You got it correct. ")
         else:
             print("I'm sorry, you got it wrong. ")
-#Ideas: make it so it checks to make sure you want to move on, make it so the user can type in "commands", make it so user can ask to see standings, make it so the name has to be a string, verify the chosen mode
-#Ideas 2:  make it so you can choose a hard mode which removes points for wrong answers, make it so the choice must be 1 or 2, make it so the question number has to be right, make it so it doesn't print the scores the last time
+#Ideas: make it so it prints out the inputs as well as asking them, make it so the user can type in "commands", make it so user can ask to see standings, make it so the name has to be a string, verify the chosen mode
+#Ideas 2:  make it so you can choose a hard mode which removes points for wrong ansxwers, make it so the choice must be 1 or 2, make it so the question number has to be right, make it so it doesn't print the scores the last time, make it so it makes sure your input for the correct choice is an int
 #If they chose the more popular one, print good job or something and add one to their score
 nameList = list(scores.keys())
 pointsList = list(scores.values())

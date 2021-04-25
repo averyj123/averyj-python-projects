@@ -1,5 +1,3 @@
-#python3 ~/Documents/GitHub/avery-python-projects/simple_equations.py
-
 #This will check if the entered equation is actually an equation.
 variables = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 def check_for_equation(equation):
@@ -10,7 +8,6 @@ def check_for_equation(equation):
         reason = "there is no equal sign in your equation"
     vars = []
     for character in equation:
-
         if character.lower() in variables:
             vars.append(character)
     if len(vars)==0:
