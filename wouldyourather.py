@@ -112,6 +112,7 @@ while True:
         break
     else:
         print("Please only enter the number 1, 2, or 3. ")
+        print("")
 print("")
 print("Ok! The chosen mode is "+mode +" mode.")
 print("Hit enter when you are ready to move on to the Would You Rather questions. ")
@@ -133,12 +134,14 @@ for i in range(questions):
     for player in scores:
         while True:
             print(player + ", which one do you think is the correct choice? Option 1 or option 2. (Please only enter the number) ")
+            print("")
             choice = input("")
             valid_input = check_for_choice(choice)
             if valid_input == "True":
                 break
             else:
                 print("I'm sorry, the input has to be either 1 or 2.")
+                print("")
         if int(choice) == int(valuesList[index][0]):
             scores[player] += 1
             correct.append(player)
@@ -162,13 +165,16 @@ for i in range(questions):
             print("Good job! You got it correct. ")
         else:
             print("I'm sorry, you got it wrong. ")
-#Ideas: make it so it prints out the inputs as well as asking them, make it so the user can type in "commands", make it so user can ask to see standings, make it so the name has to be a string, verify the chosen mode
-#Ideas 2: make it so the choice must be 1 or 2, make it so the question number has to be right, make it so it doesn't print the scores the last time, make it so it makes sure your input for the correct choice is an int
+        print("")
+#Ideas: make it so it prints out the inputs as well as asking them, make it so the user can type in "commands", make it so user can ask to see standings, make it so the name has to be a string, verify the chosen mode, add a "try" to the mode
+#Ideas 2: make it so the question number has to be right, make it so it doesn't print the scores the last time
 #If they chose the more popular one, print good job or something and add one to their score
 nameList = list(scores.keys())
 pointsList = list(scores.values())
 #sort the list and assign a variable to the value of the greatest number. make sure that value only appears once, then find that value in the list and return the person who got that score.
+print("This is the current points list: "+str(pointsList))
 sortedPoints = pointsList.sort()
+print("This is the so called sorted points list: "+str(sortedPoints))
 greatestScore = sortedPoints[-1]
 appearances = sortedPoints.count(greatestScore)
 if appearances == 1:
