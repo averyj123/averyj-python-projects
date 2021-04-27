@@ -167,22 +167,35 @@ for i in range(questions):
             print("I'm sorry, you got it wrong. ")
         print("")
 #Ideas: make it so it prints out the inputs as well as asking them, make it so the user can type in "commands", make it so user can ask to see standings, make it so the name has to be a string, verify the chosen mode, add a "try" to the mode
-#Ideas 2: make it so the question number has to be right, make it so it doesn't print the scores the last time
+#Ideas 2: make it so the question number has to be right, make it so it doesn't print the scores the last time, make it so there is a third mode where there are no scores
 #If they chose the more popular one, print good job or something and add one to their score
 nameList = list(scores.keys())
 pointsList = list(scores.values())
 #sort the list and assign a variable to the value of the greatest number. make sure that value only appears once, then find that value in the list and return the person who got that score.
-print("This is the current points list: "+str(pointsList))
-sortedPoints = pointsList.sort()
-print("This is the so called sorted points list: "+str(sortedPoints))
+sortedPoints = sorted(pointsList)
 greatestScore = sortedPoints[-1]
 appearances = sortedPoints.count(greatestScore)
-if appearances == 1:
+if people >1 and appearances == 1:
     print("The winner is... ")
-    print()
+    indexofwinner = pointsList.index(greatestScore)
+    print(nameList[indexofwinner]+"! Good job.")
+elif people > 1 and appearances > 1:
+    winners = ""
+    appearances_found = 0
+    for i in range(len(pointsList)):
+        if pointsList[i] == greatestScore and appearances_found != appearances:
+            if appearances_found == appearances - 2:
+                winners += nameList[i] + " "
+            elif appearances_found < appearances - 2:
+                winners += nameList[i] + ", "
+            else:
+                winners += "and "+nameList[i]
+            appearances_found += 1
+    print("The winners are "+winners+".")
+
 if people > 1:  
-    input("Hit enter when you are ready to see your final scores. ")
-    print("")
+    print("Hit enter when you are ready to see your final scores. ")
+    input("")
     print("Here are the final scores. ")
     for i in range(len(scores)):
         print(nameList[i]+"'s score is "+str(pointsList[i])+".")
@@ -191,4 +204,3 @@ else:
     print("")
     print("Your final score is "+str(scores[name]))
 #After they do all the questions, print who won with a congratulations message
-#IDEAS: Make it so it is just for fun, no score and such
