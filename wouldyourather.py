@@ -30,6 +30,19 @@ rathers = {
 2: Constantly speak all of your thoughts out loud
 """: "2. 409,473, or 32%, of people chose option 1 and 879,954, or 68%, chose option 2."
 }
+
+def check_for_choice(input):
+    correct_format = ""
+    try:
+        input = int(input)
+        if input == 1 or input == 2:
+            correct_format = "True"
+        else:
+            correct_format = "False"
+    except:
+        correct_format = "Error"
+    return correct_format
+
 #Print a welcome message
 print("")
 print("Hello and welcome to Would You Rather! This is a game where you can either compete with your friends, or play by yourself and try to guess which option is the most commonly picked one.")
@@ -83,7 +96,7 @@ print("")
 
 #Ask for the mode they want to play in
 while True:
-    print("Do you wnat to play in easy mode (mode 1) or hard mode (mode 2)? Please type in 1 (for easy mode), 2 (for hard mode), or 3 (to learn what hte modes are) in the input box above. ")
+    print("Do you want to play in easy mode (mode 1) or hard mode (mode 2)? Please type in 1 (for easy mode), 2 (for hard mode), or 3 (to learn what hte modes are) in the input box above. ")
     mode = input("")
     if mode == "3":
         print("")
@@ -101,7 +114,8 @@ while True:
         print("Please only enter the number 1, 2, or 3. ")
 print("")
 print("Ok! The chosen mode is "+mode +" mode.")
-input("Hit enter when you are ready to move on to the Would You Rather questions. ")
+print("Hit enter when you are ready to move on to the Would You Rather questions. ")
+input("")
 print("")
 
 valuesList = list(rathers.values())
@@ -117,7 +131,14 @@ for i in range(questions):
             break
     print(question)
     for player in scores:
-        choice = input(player + ", which one do you think is the correct choice? Option 1 or option 2. (Please only enter the number) ")
+        while True:
+            print(player + ", which one do you think is the correct choice? Option 1 or option 2. (Please only enter the number) ")
+            choice = input("")
+            valid_input = check_for_choice(choice)
+            if valid_input == "True":
+                break
+            else:
+                print("I'm sorry, the input has to be either 1 or 2.")
         if int(choice) == int(valuesList[index][0]):
             scores[player] += 1
             correct.append(player)
@@ -142,7 +163,7 @@ for i in range(questions):
         else:
             print("I'm sorry, you got it wrong. ")
 #Ideas: make it so it prints out the inputs as well as asking them, make it so the user can type in "commands", make it so user can ask to see standings, make it so the name has to be a string, verify the chosen mode
-#Ideas 2:  make it so you can choose a hard mode which removes points for wrong ansxwers, make it so the choice must be 1 or 2, make it so the question number has to be right, make it so it doesn't print the scores the last time, make it so it makes sure your input for the correct choice is an int
+#Ideas 2: make it so the choice must be 1 or 2, make it so the question number has to be right, make it so it doesn't print the scores the last time, make it so it makes sure your input for the correct choice is an int
 #If they chose the more popular one, print good job or something and add one to their score
 nameList = list(scores.keys())
 pointsList = list(scores.values())
