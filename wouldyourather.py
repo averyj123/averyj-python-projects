@@ -43,6 +43,18 @@ def check_for_choice(input):
         correct_format = "Error"
     return correct_format
 
+def check_for_question(input, max_questions):
+    try:
+        input = int(input)
+        if input > max_questions:
+            return False
+        elif input > 0:
+            return True
+        else:
+            return False
+    except:
+        return False
+
 #Print a welcome message
 print("")
 print("Hello and welcome to Would You Rather! This is a game where you can either compete with your friends, or play by yourself and try to guess which option is the most commonly picked one.")
@@ -90,9 +102,16 @@ else:
         scores[name.capitalize()]=0
         print("")
 #Ask for how many questions they want to play
-print("How many different questions would you like to go through? (limit is "+str(len(rathers))+") Enter your answer in the input box above.")
-questions = int(input(""))
-print("")
+while True:
+    print("How many different questions would you like to go through? (limit is "+str(len(rathers))+") Enter your answer in the input box above.")
+    questions = input("")
+    if check_for_question(questions, len(rathers)):
+        questions = int(questions)
+        print("")
+        break
+    else:
+        print("I'm sorry, please enter a number from 1 - "+str(len(rathers))+". Thank you.")
+        print("")
 
 #Ask for the mode they want to play in
 while True:
@@ -167,7 +186,7 @@ for i in range(questions):
             print("I'm sorry, you got it wrong. ")
         print("")
 #Ideas: make it so it prints out the inputs as well as asking them, make it so the user can type in "commands", make it so user can ask to see standings, make it so the name has to be a string, verify the chosen mode, add a "try" to the mode
-#Ideas 2: make it so the question number has to be right, make it so it doesn't print the scores the last time, make it so there is a third mode where there are no scores
+#Ideas 2: make it so it doesn't print the scores the last time, make it so there is a third mode where there are no scores, make it so the scores look nicer instead of dictionary format
 #If they chose the more popular one, print good job or something and add one to their score
 nameList = list(scores.keys())
 pointsList = list(scores.values())
@@ -180,6 +199,9 @@ if people >1 and appearances == 1:
     indexofwinner = pointsList.index(greatestScore)
     print(nameList[indexofwinner]+"! Good job.")
 elif people > 1 and appearances > 1:
+    print("There has been a tie!")
+    if appearances == people:
+        print("Nice work! Everyone won.")
     winners = ""
     appearances_found = 0
     for i in range(len(pointsList)):
