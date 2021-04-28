@@ -185,8 +185,6 @@ for i in range(questions):
         else:
             print("I'm sorry, you got it wrong. ")
         print("")
-#Ideas: make it so it prints out the inputs as well as asking them, make it so the user can type in "commands", make it so user can ask to see standings, make it so the name has to be a string, verify the chosen mode, add a "try" to the mode
-#Ideas 2: make it so it doesn't print the scores the last time, make it so there is a third mode where there are no scores, make it so the scores look nicer instead of dictionary format
 #If they chose the more popular one, print good job or something and add one to their score
 nameList = list(scores.keys())
 pointsList = list(scores.values())
