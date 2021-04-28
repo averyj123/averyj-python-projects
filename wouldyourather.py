@@ -28,7 +28,19 @@ rathers = {
     """Would You Rather
 1: Never speak out loud (not even in sign language or a made up language)
 2: Constantly speak all of your thoughts out loud
-""": "2. 409,473, or 32%, of people chose option 1 and 879,954, or 68%, chose option 2."
+""": "2. 409,473, or 32%, of people chose option 1 and 879,954, or 68%, chose option 2.",
+"""Would You Rather
+1: Be in jail for a year
+2: Live in complete isolation in the mountains for a year
+""": "2. 567,589, or 32%, chose option 1 and 1,180,860, or 68%, of people chose option 2.",
+"""Would You Rather
+1: Constantly have a runny nose
+2: Constantly have cheese dust from Cheetos all over your fingers
+""": "2. 417,068, or 50%, of people chose option 1 and 421,201, or 50%, chose option 2.",
+"""Would You Rather
+1: Have knee length hair
+2: Have a 1 foot tall mohawk
+""": "1. 846,302, or 55%, of people chose option 1 and 691,056, or 45%, chose option 2."
 }
 
 def check_for_choice(input):
@@ -220,7 +232,7 @@ if people > 1:
     for i in range(len(scores)):
         print(nameList[i]+"'s score is "+str(pointsList[i])+".")
 else: 
-    input("Hit enter when you are ready to see your score. ")
-    print("")
-    print("Your final score is "+str(scores[name]))
+    print("Hit enter when you are ready to see your score. ")
+    input("")
+    print("Your final score is "+str(scores[name.capitalize()])+".")
 #After they do all the questions, print who won with a congratulations message
