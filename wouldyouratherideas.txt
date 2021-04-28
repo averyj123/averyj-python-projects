@@ -1,0 +1,18 @@
+These are ideas to improve my Would You Rather game. 
+
+- Have a feature where the user can type in "commands" at any time to access a list of commands they can type in
+    - Command examples: standings, current winner, current loser, add a question, add a person, take away a question, take away a person, etc.
+- Protection against errors for names
+    - Use a "try" loop to verify that the inputed names are strings
+- Protection against errors for mode
+    - Use a "try" loop to verify that the inputed mode is an int that is either 1, 2, or 3
+- Make it so the program doesn't print out the scores after the last question
+    - Instead waits for the "final scores" section
+- Add a third mode called "Freeplay mode" 
+    - There are no scores 
+    - The user just plays to try to guess the more common option
+- Make the scores look nicer
+    - Instead of having them in the dictionary format {bob: 1, joe: 2}, present them in a nicer way
+- Get rid of the part of print statements saying "Enter your answer in the input box above"
+    - Unless I am one of the users
+    - Use a function for this and replace all prints with that function
