@@ -19,6 +19,7 @@ These are ideas to improve my Would You Rather game. I am hoping to do one of th
 - Make the ending more complex
     - Print the full, numbered ranking
     - If there is only one person print a special message if they got everything wrong or everything right
+- Make the check for winner a function
 
 This is the format I can copy and paste for all Would You Rather questions:
 """Would You Rather
