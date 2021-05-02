@@ -67,6 +67,14 @@ def check_for_question(input, max_questions):
     except:
         return False
 
+def check_input(input):
+    commands = ["1: Check winner", "2: Check loser", "3: Check standings", "4: Add a question", "5: Add a person", "6: Take away a person", "7: Take away a question"]
+    score_list = scores.values()
+    name_list = names.values()
+    if input.lower() == "commands":
+        print("Here is a list of commands. Type in any one of these (make sure there are no mistakes) or the corresponding number to get more information. ")
+        choice = input("")
+        for command in commands: print(command)        
 #Print a welcome message
 print("")
 print("Hello and welcome to Would You Rather! This is a game where you can either compete with your friends, or play by yourself and try to guess which option is the most commonly picked one.")
@@ -201,6 +209,7 @@ for i in range(questions):
 nameList = list(scores.keys())
 pointsList = list(scores.values())
 #sort the list and assign a variable to the value of the greatest number. make sure that value only appears once, then find that value in the list and return the person who got that score.
+
 sortedPoints = sorted(pointsList)
 greatestScore = sortedPoints[-1]
 appearances = sortedPoints.count(greatestScore)
