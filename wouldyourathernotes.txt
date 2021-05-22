@@ -1,4 +1,4 @@
-These are ideas to improve my Would You Rather game. I am hoping to do one of these per day.
+These are ideas to improve my Would You Rather game. 
 
 - Have a feature where the user can type in "commands" at any time to access a list of commands they can type in
     - Command examples: standings, current winner, current loser, add a question, add a person, take away a question, take away a person, etc.
