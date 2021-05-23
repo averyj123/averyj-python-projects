@@ -1,3 +1,4 @@
+#FINISHED (more can be added)
 #This will check if the entered equation is actually an equation.
 variables = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 def check_for_equation(equation):
